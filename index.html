@@ -161,7 +161,6 @@
             $rootScope.renderForm = false;
             setTimeout(function () {
               $rootScope.renderForm = true;
-              console.log($rootScope.form);
               editor.setText(JSON.stringify($rootScope.form));
             }, 10);
           });
@@ -202,7 +201,6 @@
       readAsDefault: 'Text',
       on: {
         load: function (event, file) {
-          console.log(event.target.result);
           editor.setText(event.target.result);
         }
       }
@@ -223,7 +221,6 @@
           fname = fname.split('.')[0] + ".json";
         }
       }
-      console.log(fname);
       var blob = new Blob([editor.getText()], { type: 'application/json;charset=utf-8' });
       var realform = editor.getText();
       saveAs(blob, fname);
