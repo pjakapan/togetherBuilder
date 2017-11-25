@@ -145,8 +145,7 @@
             name: 'wizard',
             title: 'Wizard'
           }];
-          var a = loadForm();
-          $rootScope.form =  {components:[]};
+          $rootScope.form =  loadForm();
           $rootScope.myFunc = function () {
             $rootScope.form = JSON.parse(editor.getText());
           };
