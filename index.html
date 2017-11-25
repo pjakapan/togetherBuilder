@@ -93,7 +93,7 @@
               <input type="button" id="saveDocument" value="Save" />
               <button ng-click="myFunc()">Preview</button>
             </p>
-
+            <div class="setAlert"></div>
             <div id="jsoneditor"></div>
           </div>
         </div>
@@ -147,7 +147,8 @@
           }];
           $rootScope.form =  loadForm();
           $rootScope.myFunc = function () {
-            $rootScope.form = JSON.parse(editor.getText());
+            console.log("aaa");
+            IsJsonString() ? $rootScope.form = JSON.parse(editor.getText()) : AlertInvalid();
           };
           $rootScope.renderForm = true;
           $rootScope.$on('formUpdate', function (event, realform) {
@@ -202,6 +203,11 @@
 
     // Save a JSON document
     document.getElementById('saveDocument').onclick = function () {
+
+      if (!IsJsonString()) {
+        AlertInvalid();
+      }
+      else {
       // Save Dialog
       fname = window.prompt("Save as...");
 
@@ -218,7 +224,21 @@
       var blob = new Blob([editor.getText()], { type: 'application/json;charset=utf-8' });
       var realform = editor.getText();
       saveAs(blob, fname);
+    }
     };
+    function IsJsonString() {
+      try {
+        JSON.parse(editor.getText());
+      } catch (e) {
+        return false;
+      }
+      return true;
+    }
+
+    function AlertInvalid() {
+      $(".setAlert").append('<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Danger!</strong> Invalid Json Format.</div></div>');
+    }
+
   </script>
 </body>
 
