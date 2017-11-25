@@ -3,15 +3,13 @@
 // Load form.io functions                                                                                        loadJsonForm.js 
 // -----------------------------------------------------------------------------------------------------------------------------
 
-var arrForm = loadForm();
-
 function loadForm() {
-    var url = "./json/data.json"
+
     var json = null;
     var getsetting = {
         'async': false,
         'global': false,
-        'url': url,
+        'url': "./json/data.json",
         'dataType': "json",
         "method": "GET"
     }
