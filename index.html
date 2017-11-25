@@ -147,7 +147,6 @@
           }];
           $rootScope.form =  loadForm();
           $rootScope.myFunc = function () {
-            console.log("aaa");
             IsJsonString() ? $rootScope.form = JSON.parse(editor.getText()) : AlertInvalid();
           };
           $rootScope.renderForm = true;
