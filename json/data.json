@@ -1,1 +1,65 @@
-{"_id":"5a124e0ebe414f000190c170","machineName":"kegoilcdymkwamk:mail","modified":"2017-11-27T06:03:27.195Z","title":"Mail","display":"form","name":"mail","path":"mailform","project":"5a124dceeb180900018bd3ee","created":"2017-11-20T03:37:50.503Z","components":[{"properties":{"":""},"conditional":{"eq":"","when":null,"show":""},"tags":[],"type":"button","theme":"primary","disableOnInvalid":false,"action":"submit","block":false,"rightIcon":"","leftIcon":"","size":"md","key":"submit","tableView":false,"label":"Submit","input":true,"custom":""}],"owner":"59b0f3b82f12080007486f7a","submissionAccess":[],"access":[{"type":"read_all","roles":["5a124dceeb180900018bd3ef","5a124dceeb180900018bd3f0","5a124dceeb180900018bd3f1"]}],"tags":[],"type":"form"}
+{
+    "components": [
+        {
+            "properties": {
+                "": ""
+            },
+            "tags": [],
+            "type": "textfield",
+            "conditional": {
+                "eq": "",
+                "when": null,
+                "show": ""
+            },
+            "validate": {
+                "customPrivate": false,
+                "custom": "",
+                "pattern": "",
+                "maxLength": "",
+                "minLength": "",
+                "required": false
+            },
+            "clearOnHide": true,
+            "hidden": false,
+            "persistent": true,
+            "unique": false,
+            "protected": false,
+            "defaultValue": "",
+            "multiple": false,
+            "suffix": "",
+            "prefix": "",
+            "placeholder": "",
+            "key": "example",
+            "label": "example",
+            "inputMask": "",
+            "inputType": "text",
+            "tableView": true,
+            "input": true
+        },
+        {
+            "custom": "",
+            "input": true,
+            "label": "Submit",
+            "tableView": false,
+            "key": "submit",
+            "size": "md",
+            "leftIcon": "",
+            "rightIcon": "",
+            "block": false,
+            "action": "submit",
+            "disableOnInvalid": false,
+            "theme": "primary",
+            "type": "button",
+            "tags": [],
+            "conditional": {
+                "show": "",
+                "when": null,
+                "eq": ""
+            },
+            "properties": {
+                "": ""
+            }
+        }
+    ],
+    "type": "form"
+}
