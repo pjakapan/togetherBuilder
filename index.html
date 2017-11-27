@@ -147,7 +147,8 @@
           }];
           $rootScope.form =  loadForm();
           $rootScope.myFunc = function () {
-            IsJsonString() ? $rootScope.form = JSON.parse(editor.getText()) : AlertInvalid();
+            console.log(IsJsonString());
+            IsJsonString() === 0 ? $rootScope.form = JSON.parse(editor.getText()) : AlertInvalid();
           };
           $rootScope.renderForm = true;
           $rootScope.$on('formUpdate', function (event, realform) {
@@ -229,14 +230,11 @@
      var state = 0;
       try {
         JSON.parse(editor.getText());
-        if(editor.getText() === "{}"){
-          console.log(editor.getText());
-          
-        }
       } catch (e) {
         return 2;
       }
-      return 1;
+
+      return editor.getText() != "{}" ? 0 : 1
     }
 
     function AlertInvalid() {
