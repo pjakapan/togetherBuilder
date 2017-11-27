@@ -226,12 +226,16 @@
     }
     };
     function IsJsonString() {
+     var state = 0;
       try {
         JSON.parse(editor.getText());
+        if(editor.getText() === "{}"){
+          console.log(editor.getText());
+        }
       } catch (e) {
-        return false;
+        return 2;
       }
-      return true;
+      return 1;
     }
 
     function AlertInvalid() {
