@@ -145,10 +145,9 @@
             name: 'wizard',
             title: 'Wizard'
           }];
-          $rootScope.form =  loadForm();
+          $rootScope.form = loadForm();
           $rootScope.myFunc = function () {
-            console.log(IsJsonString());
-            IsJsonString() === 0 ? $rootScope.form = JSON.parse(editor.getText()) : AlertInvalid();
+            IsJsonString() === 0 ? $rootScope.form = JSON.parse(editor.getText()) : AlertInvalid(IsJsonString());
           };
           $rootScope.renderForm = true;
           $rootScope.$on('formUpdate', function (event, realform) {
@@ -208,26 +207,26 @@
         AlertInvalid();
       }
       else {
-      // Save Dialog
-      fname = window.prompt("Save as...");
+        // Save Dialog
+        fname = window.prompt("Save as...");
 
-      // Check json extension in file name
-      if (fname.indexOf(".") == -1) {
-        fname = fname + ".json";
-      } else {
-        if (fname.split('.').pop().toLowerCase() == "json") {
-          // Nothing to do
+        // Check json extension in file name
+        if (fname.indexOf(".") == -1) {
+          fname = fname + ".json";
         } else {
-          fname = fname.split('.')[0] + ".json";
+          if (fname.split('.').pop().toLowerCase() == "json") {
+            // Nothing to do
+          } else {
+            fname = fname.split('.')[0] + ".json";
+          }
         }
+        var blob = new Blob([editor.getText()], { type: 'application/json;charset=utf-8' });
+        var realform = editor.getText();
+        saveAs(blob, fname);
       }
-      var blob = new Blob([editor.getText()], { type: 'application/json;charset=utf-8' });
-      var realform = editor.getText();
-      saveAs(blob, fname);
-    }
     };
     function IsJsonString() {
-     var state = 0;
+      var state = 0;
       try {
         JSON.parse(editor.getText());
       } catch (e) {
@@ -237,8 +236,10 @@
       return editor.getText() != "{}" ? 0 : 1
     }
 
-    function AlertInvalid() {
-      $(".setAlert").append('<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Danger!</strong> Invalid Json Format.</div></div>');
+    function AlertInvalid(state) {
+      state === 2
+        ? $(".setAlert").append('<div class="alert alert-danger alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Danger!</strong> Invalid Json Format.</div></div>')
+        : $(".setAlert").append('<div class="alert alert-info alert-dismissable"><a href="#" class="close" data-dismiss="alert" aria-label="close">×</a><strong>Info!</strong>Json is emtpy</div></div>');
     }
 
   </script>
