@@ -203,7 +203,7 @@
     // Save a JSON document
     document.getElementById('saveDocument').onclick = function () {
 
-      if (IsJsonString() === 0) {
+      if (!IsJsonString() === 0) {
         AlertInvalid(IsJsonString());
       }
       else {
