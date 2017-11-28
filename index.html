@@ -91,7 +91,7 @@
             <p>
               Save a JSON document:
               <input type="button" id="saveDocument" value="Save" />
-              <button ng-click="myFunc()">Preview</button>
+              <button ng-click="preViewFunc()">Preview</button>
             </p>
             <div class="setAlert"></div>
             <div id="jsoneditor"></div>
@@ -146,10 +146,13 @@
             title: 'Wizard'
           }];
           $rootScope.form = loadForm();
-          $rootScope.myFunc = function () {
+
+          $rootScope.preViewFunc = function () {
             IsJsonString() === 0 ? $rootScope.form = JSON.parse(editor.getText()) : AlertInvalid(IsJsonString());
           };
+
           $rootScope.renderForm = true;
+
           $rootScope.$on('formUpdate', function (event, realform) {
             angular.merge($rootScope.form, realform);
             $rootScope.renderForm = false;
