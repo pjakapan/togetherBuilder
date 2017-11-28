@@ -80452,7 +80452,7 @@ module.exports = function(app) {
                 try {
                   defaultDate = new Date(eval($scope.component.defaultDate));
                 }
-                catch (e) {
+                catch (e) { 
                   defaultDate = '';
                 }
               }
@@ -94350,7 +94350,8 @@ module.exports = ['debounce', function(debounce) {
         });
 
         // Get the resource fields.
-        var resourceEnabled = !formioComponents.groups.resource || !formioComponents.groups.resource.disabled;
+        //var resourceEnabled = !formioComponents.groups.resource || !formioComponents.groups.resource.disabled;
+        var resourceEnabled = false;
         if ($scope.formio && resourceEnabled) {
           $scope.formComponentsByGroup.resource = {};
           $scope.formComponentGroups.resource = {
